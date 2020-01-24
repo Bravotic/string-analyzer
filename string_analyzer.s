@@ -18,12 +18,14 @@ section .data
     
 
 section .bss
-    ; Reserve 128 bytes plus one for null termination for the strings
+    ; Reserve 64 bytes plus one for null termination for the strings
+    ; The last byte will never be overwritten by the program (only looking
+    ; for 64 so it serves as a null terminator always)
     string_buffer: resb 65
     uc_buffer: resb 65
     lc_buffer: resb 65
     
-    ; Reserve 64 bytes for conversion buffer for misc conversions
+    ; Reserve 2 bytes for conversion buffer for misc conversions
     conv_buffer: resb 2
 
 section .text
